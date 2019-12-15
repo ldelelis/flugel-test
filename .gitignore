@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+.terraform/
+*.tfstate.backup
+*.tfstate
+.envrc
