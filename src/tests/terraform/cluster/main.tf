@@ -13,18 +13,18 @@ provider "aws" {
 }
 
 provider "kubernetes" {
-  host = module.test_cluster.endpoint
+  host                   = module.test_cluster.endpoint
   cluster_ca_certificate = base64decode(module.test_cluster.kubeconfig-certificate-authority-data)
-  token = data.aws_eks_cluster_auth.demo_cluster_auth.token
-  load_config_file = false
+  token                  = data.aws_eks_cluster_auth.demo_cluster_auth.token
+  load_config_file       = false
 }
 
 module "test_cluster_vpc" {
   source = "../modules/vpc"
-  
-  vpc_cidr_block  = var.eks_vpc_cidr_block
+
+  vpc_cidr_block = var.eks_vpc_cidr_block
   vpc_tags = {
-    "kubernetes.io/cluster/${var.eks_cluster_name}": "shared"
+    "kubernetes.io/cluster/${var.eks_cluster_name}" : "shared"
   }
 }
 
@@ -49,7 +49,7 @@ resource "kubernetes_pod" "hello_world" {
   spec {
     container {
       image = "strm/helloworld-http"
-      name = "hello-world"
+      name  = "hello-world"
 
       port {
         container_port = 80
@@ -72,7 +72,7 @@ resource "kubernetes_service" "hello_world" {
       App = kubernetes_pod.hello_world.metadata[0].labels.App
     }
     port {
-      port = 80
+      port        = 80
       target_port = 80
     }
 

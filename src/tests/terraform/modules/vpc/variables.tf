@@ -3,12 +3,12 @@ variable "vpc_cidr_block" {
 }
 
 variable "vpc_subnet_count" {
-  type = number
+  type    = number
   default = 2
 }
 
 variable "vpc_tags" {
-  type = map
+  type    = map
   default = {}
 }
 

@@ -64,7 +64,7 @@ resource "aws_eks_cluster" "demo_cluster" {
   role_arn = aws_iam_role.demo_cluster.arn
 
   vpc_config {
-    subnet_ids = [for s in var.eks_subnet_ids : tostring(s)]
+    subnet_ids              = [for s in var.eks_subnet_ids : tostring(s)]
     endpoint_private_access = true
   }
 
@@ -90,7 +90,7 @@ resource "aws_eks_node_group" "demo_cluster" {
   }
 
   remote_access {
-    ec2_ssh_key  = "delete"
+    ec2_ssh_key = "delete"
   }
 
   depends_on = [
