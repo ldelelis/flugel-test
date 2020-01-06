@@ -89,10 +89,6 @@ resource "aws_eks_node_group" "demo_cluster" {
     max_size     = 3
   }
 
-  remote_access {
-    ec2_ssh_key = "delete"
-  }
-
   depends_on = [
     aws_iam_role_policy_attachment.demo_node_group-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.demo_node_group-AmazonEKS_CNI_Policy,
