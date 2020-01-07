@@ -1,0 +1,5 @@
+aws_profile                 = "flugel"
+eks_cluster_name            = "demo-cluster"
+eks_cluster_node_group_name = "demo-cluster-node-group"
+eks_iam_role_name           = "demo-eks-role"
+eks_vpc_cidr_block          = "172.10.0.0/16"

@@ -1,6 +1,10 @@
 import json
 import os
+import os.path
+import sys
 import unittest
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from main import filter_aws_resources
 
